@@ -3,29 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <title>Geolocation Test</title>
+	<style>
+	#map {
+        height: 100%;
+		width:100%;
+		min-height:200px;
+		min-width:100px;
+		vertical-align:left;
+		visibility: visible;
+      }
+	</style>
 </head>
 <body>
-<script>
+<div id=map></div>
+<div id="coordenates">
+Latitude: <spam id="txtLat">...</spam>
+Longitude: <spam id="txtLng">...</spam>
+Accuracy: <spam id="txtAddress">...</spam>
+</div>
+	
+    <script>
 
-    /**
-     * For testing if basic geolocation functionality is working
-     */
-
-    getLocation();
-
-    function getLocation() {
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat:  40.4169, lng: -3.7033},   //La Puerta del Sol
+          zoom: 18,
+		  language: "es-es"
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+        var marker = new google.maps.Marker({map: map});
+		var address;
+		
+        // Try HTML5 geolocation.
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            
+            var coords=JSON.stringify(pos);
+            
+            //Y la dirección a partir de las coordenadas
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({'latLng': pos}, function(results, status){
+			if (status == google.maps.GeocoderStatus.OK){
+				if (results[0]) {
+					address=results[0].formatted_address
+				} else address="Address unsolved / Dirección no resuelta";
+			} else address="Coordenates conversion failed / Fallo de conversión de las coordenadas";
+
+			//infoWindow.setContent(address+coords);
+			//infoWindow.visible=false;//ility: hidden;
+            marker.setPosition(pos);
+
+
+			var latn = Math.abs(pos.lat);
+			var latgr = Math.floor(latn * 1);
+			var latmin = Math.floor((latn - latgr) * 60);
+			var latseg = ((((latn - latgr) * 60) - latmin) * 60);
+			var latc = (latgr + "º" + latmin + "\'" + latseg.toFixed(2) + '\"');
+			var x = (latn>0)? latc+'N' : latc+'S';
+		
+			var lngn = Math.abs(pos.lng);
+			var lnggr = Math.floor(lngn * 1);
+			var lngmin = Math.floor((lngn - lnggr) * 60);
+			var lngseg = ((((lngn - lnggr) * 60) - lngmin) * 60);
+			var lngc = (lnggr + "º" + lngmin + "\'" + lngseg.toFixed(2) + '\"');
+			var y =(lngn>0)? lngc+'E' : lngc+'W';
+			
+			document.getElementById('txtAddress').innerHTML=address;
+		    document.getElementById('txtLat').innerHTML= x;
+		    document.getElementById('txtLng').innerHTML= y;		
+			});
+
+
+            infoWindow.setPosition(pos);
+            marker.setPosition(pos);
+            infoWindow.setContent(address);
+			infoWindow.close();//=false;
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
         } else {
-            console.log( "Geolocation is not supported by this browser." );
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
         }
-    }
-    function showPosition(position) {
-        console.log("Location object received");
-        document.getElementById( "lat").innerHTML = position.coords.latitude;
-	document.getElementById( "lng").innerHTML = position.coords.longitude;
-        document.getElementById( "acc").innerHTML = position.coords.accuracy;
-    }
-</script>
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The geolocation service failed / El servicio de geolocalización ha fallado.' :
+                              'Error: Your browser doesn\'t support geolocation / El navegador no soporta geolocalización.');
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQluvHWDNjZls1G4_Vz-Rjnm0wx5GRCi0&callback=initMap&language=es">
+    </script>
 </body>
 </html>
