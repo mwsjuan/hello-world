@@ -34,7 +34,28 @@ Accuracy: ...
       </footer>
 
     </section>
+<script>
 
+    /**
+     * For testing if basic geolocation functionality is working
+     */
+
+    getLocation();
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            console.log( "Geolocation is not supported by this browser." );
+        }
+    }
+    function showPosition(position) {
+        console.log("Location object received");
+        document.getElementById( "lat").innerHTML = position.coords.latitude;
+		    document.getElementById( "lng").innerHTML = position.coords.longitude;
+        document.getElementById( "acc").innerHTML = position.coords.accuracy;
+    }
+</script>
   
   </body>
 </html>
