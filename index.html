@@ -22,9 +22,9 @@
     }
     function showPosition(position) {
         console.log("Location object received");
-        console.log( "Latitude: " + position.coords.latitude +
-                ", Longitude: " + position.coords.longitude  +
-                ", Accuracy " + position.coords.accuracy);
+        document.getElementById( "lat").innerHTML = position.coords.latitude;
+		document.getElementById( "lng").innerHTML = position.coords.longitude;
+        document.getElementById( "acc").innerHTML = position.coords.accuracy;
     }
 </script>
 </body>
