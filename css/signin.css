@@ -1,0 +1,71 @@
+.fWhite { color:#ffffff; }
+.fGrey { color:#656565; }
+.fBlack { color:#000000; }
+.fGreen { color:#4ba246; }
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+label { color:#4ba246;}
+.displayed {display: block; margin-left: auto; margin-right: auto;}
+.circle { -webkit-border-radius:  50%; -moz-border-radius:  50%; border-radius:  50%; }
+.personalInfoPhoto { position: relative; float: left; width: 24%; padding-left:3%; padding-right:3%; }
+.personalInfoPhoto .mask { width:200px; height:200px; overflow:hidden; border:#e5e5e5 15px solid; text-align:center; -webkit-animation-duration:0.5s; transition:0.5s; }
+.personalInfoPhoto .mask img { height: 100%; 
+/* Screen ajust */
+@media only screen and (max-width: 880px){
+	.personalInfoPhoto .mask { width:180px; height:180px; }
+}
+@media only screen and (max-width: 780px){
+	.personalInfoPhoto .mask { width:160px; height:160px; }
+}
+@media only screen and (max-width: 720px){
+	.personalInfoPhoto .mask { width:140px; height:140px; }
+}
+@media only screen and (max-width: 660px){
+	.personalInfoPhoto .mask { width:120px; height:120px; }
+}
+@media only screen and (max-width: 570px){
+	.personalInfoPhoto .mask { width:100px; height:100px; }
+}
+@media only screen and (max-width: 500px){
+	.personalInfoPhoto .mask { width:80px; height:80px; }
+}

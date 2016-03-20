@@ -1,0 +1,119 @@
+html {  height: 100%; overflow: auto; }
+body { padding:0px; margin:10px; font-family:Helvetica; background-color:#DDDDDD; height:100%; min-height:100%; font-size:18px; }
+
+.overlay {
+	opacity:0;
+	position:fixed;
+	top:-999em;
+	left:-999em;
+	width:100%;
+	height:100%;
+	display:table;
+	background:#b1b2b4; /*rgba(0,0,0,0.8);*/
+	-webkit-animation: splash 4s forwards; 
+  animation: splash 4s forwards;
+}
+.overlay-inner {
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+.message {
+	border:10px solid fGreen;
+	border-radius:10px;
+	background:#fff;
+	display:inline-block;
+	vertical-align:middle;
+	width:50%;
+	text-align:left;
+	padding:10px;
+}
+@-webkit-keyframes splash {
+  0%   {opacity: 0;top:0;left:0}
+	20% {opacity:1;top:0;left:0}
+	60% {opacity:1;top:0;left:0}
+	99% {top:0;left:0}
+	100% {opacity:0;top:-999em;left:-999em}
+}
+@-moz-keyframes splash {
+  0%   {opacity: 0;top:0;left:0}
+	20% {opacity:1;top:0;left:0}
+	60% {opacity:1;top:0;left:0}
+	99% {top:0;left:0}
+	100% {opacity:0;top:-999em;left:-999em}
+}
+@-ms-keyframes splash {
+  0%   {opacity: 0;top:0;left:0}
+	20% {opacity:1;top:0;left:0}
+	60% {opacity:1;top:0;left:0}
+	99% {top:0;left:0}
+	100% {opacity:0;top:-999em;left:-999em}
+}  
+@keyframes splash {
+  0%   {opacity: 0;top:0;left:0}
+	20% {opacity:1;top:0;left:0}
+	60% {opacity:1;top:0;left:0}
+	99% {top:0;left:0}
+	100% {opacity:0;top:-999em;left:-999em}
+}
+
+
+
+input[type=checkbox] {
+  /* All browsers except webkit*/
+  transform: scale(1.0);
+  /* Webkit browsers*/
+  -webkit-transform: scale(1.0);
+}
+p { margin: 10px; padding: 0px; margin-bottom:15px; }
+
+.modal-body { font-family:Helvetica;}
+.modal { font-family:Helvetica;}
+/* color y backcolor */
+.fWhite { color:#ffffff; }
+.fGrey { color:#656565;}
+.fBlack { color:#000000; }
+.fGreen { color:#4ba246; }
+.fRed { color:#e11d24; }
+.fBlue { color:#426fb6; }
+.bRed {background-color:#e11d24;}
+.bGreen {background-color:#4ba246;}
+.bGrey { color:#b1b2b4;}
+.negrita { font-weight:bold; }
+
+
+/* divs */
+    
+.container { position: relative; margin: 0 auto; width:100%; max-width:1200px; text-align:left; background-color:#DDDDDD; padding-bottom:20px;  }
+.Pagina {padding-bottom: 30px;}
+.Pie {padding-top:30px;}
+.row { position: relative; float:left; width:100%; height:auto; }
+.logo { height:100px; background-color:#DDDDDD; text-align:center;}
+.displayed {display: block; margin-left: auto; margin-right: auto;}
+.rigthJustify { position: relative; float:left; display:block; width:100%; height:auto; text-align:left; padding-top:10px; padding-bottom:8px; background-color:#4ba246; padding-left: 52px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.Identidad { position: relative; float: left; width: 100%; height:auto; padding-top:20px; padding-bottom:20px; text-align: left; }
+.izquierda { position: relative; float: left; width: 43%; padding-left:3%; padding-right:3%; }
+.retrato .mask { min-width:100px; min-height:100px; overflow:hidden; border:#4ba246 8px solid; text-align:center; -webkit-animation-duration:0.5s; transition:0.5s; }
+.retrato .mask img { height: 100%; }
+.derecha { position: relative; float: left; width: 57%; padding-left:2%; margin-left:-2px; }
+.bloque { padding-top:30px; padding-bottom:30px; text-align: center; }
+.bloqueCentrado { position: relative; display:inline-block; }
+.boton { position: relative; float: left; width: 250px; height:30px; padding-top:25px; padding-bottom:25px; text-align: center; }
+.boton a { width: 100%; display:block; }
+.linkHover:hover {color:white; opacity:0.5; filter:alpha(opacity=50); }
+.circle { -webkit-border-radius:  50%; -moz-border-radius:  50%; border-radius:  50%; }
+.address {font-size:smaller; font-weight:italic; color:#4ba246}
+
+.botonGris { background-color:#b1b2b4; }
+#map {
+        height: 100%;
+		width:100%;
+		min-height:200px;
+		min-width:100px;
+		vertical-align:left;
+		visibility: visible;
+      }
+.geolocalizacion { position: relative; float: left; width: 100%; padding-left:2%; margin-left:-2px; }
+
+
+
