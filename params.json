@@ -1,0 +1,6 @@
+{
+  "name": "Hello-world",
+  "tagline": "Lorem ipsum dolor sic amet",
+  "body": "<div id=\"coordenates\">\r\nLatitude: <spam id=\"lat\">...</spam>\r\nLongitude: <spam id=\"lng\">...</spam>\r\nAccuracy: <spam id=\"acc\">...</spam>\r\n</div>\r\n<script>\r\n\r\n    /**\r\n     * For testing if basic geolocation functionality is working\r\n     */\r\n\r\n    getLocation();\r\n\r\n    function getLocation() {\r\n        if (navigator.geolocation) {\r\n            navigator.geolocation.getCurrentPosition(showPosition);\r\n        } else {\r\n            console.log( \"Geolocation is not supported by this browser.\" );\r\n        }\r\n    }\r\n    function showPosition(position) {\r\n        console.log(\"Location object received\");\r\n        document.getElementById( \"lat\").innerHTML = position.coords.latitude;\r\n\t\tdocument.getElementById( \"lng\").innerHTML = position.coords.longitude;\r\n        document.getElementById( \"acc\").innerHTML = position.coords.accuracy;\r\n    }\r\n</script>",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
